@@ -22,7 +22,7 @@ Article.prototype.toHtml = function() {
   $('.titleClass').text(this.title);
   $('address a').text(this.author);
   $('address a').attr("html", this.authorUrl);
-  $('.article-body').text(this.body);
+  $('.article-body').html(this.body);
   $('time').attr("pubdate", this.publishedOn);
 
   // Include the publication date as a 'title' attribute to show on hover:
