@@ -15,11 +15,15 @@ Article.prototype.toHtml = function() {
   var $newArticle = $('article.template').clone();
 
   $newArticle.attr('data-category', this.category);
-
   // TODO: Use jQuery to fill in the template with properties
   // from this particular Article instance. We need to fill in:
   // the author name and url, the article title and body, and the
   // publication date.
+  $('.titleClass').text(this.title);
+  $('address a').text(this.author);
+  $('address a').attr("html", this.authorUrl);
+  $('.article-body').text(this.body);
+  $('time').attr("pubdate datetime", this.publishedOn);
 
   // Include the publication date as a 'title' attribute to show on hover:
   $newArticle.find('time[pubdate]').attr('title', this.publishedOn)
