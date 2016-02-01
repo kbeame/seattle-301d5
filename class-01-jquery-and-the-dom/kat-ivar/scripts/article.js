@@ -23,7 +23,7 @@ Article.prototype.toHtml = function() {
   $('address a').text(this.author);
   $('address a').attr("html", this.authorUrl);
   $('.article-body').text(this.body);
-  $('time').attr("pubdate datetime", this.publishedOn);
+  $('time').attr("pubdate", this.publishedOn);
 
   // Include the publication date as a 'title' attribute to show on hover:
   $newArticle.find('time[pubdate]').attr('title', this.publishedOn)
@@ -34,6 +34,7 @@ Article.prototype.toHtml = function() {
   $newArticle.append('<hr>');
 
   // TODO: This cloned article is no longer a template, so we should remove that class...
+  $newArticle.removeClass('template');
 
   return $newArticle;
 }
