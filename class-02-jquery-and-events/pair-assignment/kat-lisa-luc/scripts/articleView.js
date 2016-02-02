@@ -29,15 +29,21 @@ articleView.populateFilters = function() {
 articleView.handleAuthorFilter = function() {
   $('#author-filter').on('change', function() {
     if ($(this).val()) {
-      // TODO: If the select box was changed to an option that has a value, we need to hide all the articles,
+      // DONE: If the select box was changed to an option that has a value, we need to hide all the articles,
       //       and then show just the ones that match for the author that was selected.
       //       Use an "attribute selector" to find those articles, and fade them in for the reader.
-
-    } else {
-      // TODO: If the select box was changed to an option that is blank, we should
-      //       show all the articles, except the one article we are using as a template.
+      $('article').hide();
+      var authVal = $(this).val();
+      console.log(authVal);
+      $('article[data-author="' + authVal + '"]').fadeIn();
 
     }
+    else {
+      // DONE: If the select box was changed to an option that is blank, we should
+      //       show all the articles, except the one article we are using as a template.
+      $('article').show();
+    }
+
     $('#category-filter').val('');
   });
 };
@@ -74,3 +80,5 @@ articleView.setTeasers = function() {
 
 // TODO: Call all of the above functions, once we are sure the DOM is ready.
 $();
+articleView.populateFilters();
+articleView.handleAuthorFilter();
