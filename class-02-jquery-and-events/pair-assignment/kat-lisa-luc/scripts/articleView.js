@@ -82,10 +82,10 @@ articleView.handleMainNav = function() {
 // Show the selected item
 
     var navVal = $(this).data('content');
-    $('section').hide();
+
+    $('.tab-content').hide();
     $('section#' + navVal).fadeIn();
     console.log(navVal);
-    // $('#about').toggleClass();
   });
 
   $('.main-nav .tab:first').click(); // Let's now trigger a click on the first .tab element, to set up the page.
