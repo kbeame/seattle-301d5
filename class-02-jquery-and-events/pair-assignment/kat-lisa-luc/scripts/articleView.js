@@ -70,14 +70,14 @@ articleView.handleCategoryFilter = function() {
 };
 
 articleView.handleMainNav = function() {
-  // TODO: Add an event handler to .main-nav element that will power the Tabs feature.
+  // DONE: Add an event handler to .main-nav element that will power the Tabs feature.
   //       Clicking any .tab element should hide all the .tab-content sections, and then reveal the
   //       single .tab-content section that is associated with the clicked .tab element.
   //       So: You need to dynamically build a selector string with the correct ID, based on the
   //       data available to you on the .tab element that was clicked.
   $('.main-nav').on('click', '.tab', function() {
 
-//TODO: after click, we want it to select what is clicked on (elements).
+//DONE: after click, we want it to select what is clicked on (elements).
 // Hide everything not selected
 // Show the selected item
 
