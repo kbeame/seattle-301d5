@@ -1,7 +1,10 @@
-/* TODO: Give the site header a nice background color, from your selected color scheme. */
+/* DONE: Give the site header a nice background color, from your selected color scheme. */
 
 .site-header {
-  padding: .1em;
+  padding: .8em;
+  background-color: rgb(70,67,74);
+  background-size: contain;
+
 }
 
 .main-nav {
