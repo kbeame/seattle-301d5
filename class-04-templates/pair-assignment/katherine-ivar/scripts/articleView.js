@@ -1,4 +1,4 @@
-// Configure a view object, to hold all our functions for dynamic updates and article-related event handlers.
+  // Configure a view object, to hold all our functions for dynamic updates and article-related event handlers.
 var articleView = {};
 
 articleView.populateFilters = function() {
