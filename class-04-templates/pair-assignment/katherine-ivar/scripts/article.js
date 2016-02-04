@@ -9,6 +9,12 @@ function Article (opts) {
   this.publishedOn = opts.publishedOn;
 }
 
+Article.prototype.populateFilters = function() {
+var filtering = Handlebars.compile($('#filter-template').text());
+return filtering(this);
+}
+
+
 Article.prototype.toHtml = function() {
   // DONE: Use handlebars to render your articles.
   //       - Get your template from the DOM.
