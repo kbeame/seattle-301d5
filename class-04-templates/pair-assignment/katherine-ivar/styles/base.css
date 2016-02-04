@@ -1,7 +1,11 @@
 img {
   max-width: 100%;
+  margin: 1%;
 }
-
+#articles {
+  margin-left: 2%;
+  margin-right: 2%;
+}
 body {
   line-height: 1.5;
   font-size: 100%;
