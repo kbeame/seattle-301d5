@@ -54,13 +54,13 @@
     }
   };
 
-  // TODO: Chain together a `map` and a `reduce` call to get a rough count of all words in all articles.
+  // DONE: Chain together a `map` and a `reduce` call to get a rough count of all words in all articles.
   Article.numWordsAll = function() {
     return Article.all.map(function(article) {
-      return // Get the total number of words in this article
+      return article.body.match(/\b\w+/g).length;// Get the total number of words in this article
     })
-    .reduce(function(a, b) {
-      return // Sum up all the values in the collection
+    .reduce(function(previous, current) {
+      return previous+current;// Sum up all the values in the collection
     })
   };
 
