@@ -1,5 +1,11 @@
 // TODO: Wrap the entire contents of this file in an IIFE.
 // Pass in to the IIFE a module, upon which objects can be attached for later access.
+(function(module) {
+//all your stuff goes here
+
+// YOU MIGHT WANT TO EXPOSE ARTICLE TO THE WINDOW
+module.Article = Article; // you have now attached the window property to the window object, this exports the contents of the atricle to wthe window so that we can use them outside of the confines of the IFFEY
+}(window));
 function Article (opts) {
   this.author = opts.author;
   this.authorUrl = opts.authorUrl;
@@ -56,16 +62,18 @@ Article.fetchAll = function() {
 // TODO: Chain together a `map` and a `reduce` call to get a rough count of all words in all articles.
 Article.numWordsAll = function() {
   return Article.all.map(function(article) {
-    return // Get the total number of words in this article
+    return article.body.match(/\b\w+/g).length; // Get the total number of words in this article //redular expression!!!!!!!
   })
-  .reduce(function(a, b) {
-    return // Sum up all the values in the collection
+  .reduce(function(previous, current) {
+    return previous + current;// Sum up all the values in the collection
   })
 };
 
 // TODO: Chain together a `map` and a `reduce` call to produce an array of unique author names.
 Article.allAuthors = function() {
   return // Don't forget to read the docs on map and reduce!
+  //how to get all of the authors???--- see the docs on these
+  //spend about 25 min on this function
 };
 
 Article.numWordsByAuthor = function() {
