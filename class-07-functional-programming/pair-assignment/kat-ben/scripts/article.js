@@ -66,8 +66,20 @@
 
   // TODO: Chain together a `map` and a `reduce` call to produce an array of unique author names.
   Article.allAuthors = function() {
-    return // Don't forget to read the docs on map and reduce!
+    return Article.all.map(function(article) {
+      console.log(article.author);
+      return article.author;
+    })
+   // Don't forget to read the docs on map and reduce!
+    // .reduce(function(previous, current) {
+    //     return previous.concat(current);
+    //   }, []);
+    // }
+    .filter(function(element, position, array) {
+      return array.indexOf(element) === position;
+    })
   };
+// Article.all[0].author
 
   Article.numWordsByAuthor = function() {
     // TODO: Transform each author string into an object with 2 properties: One for
