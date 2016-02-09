@@ -64,31 +64,38 @@
     })
   };
 
-  // TODO: Chain together a `map` and a `reduce` call to produce an array of unique author names.
+  // DONE: Chain together a `map` and a `reduce` call to produce an array of unique author names.
   Article.allAuthors = function() {
     return Article.all.map(function(article) {
-      console.log(article.author);
       return article.author;
     })
    // Don't forget to read the docs on map and reduce!
-    // .reduce(function(previous, current) {
-    //     return previous.concat(current);
-    //   }, []);
-    // }
-    .filter(function(element, position, array) {
-      return array.indexOf(element) === position;
-    })
-  };
-// Article.all[0].author
+    .reduce(function(names, name) {
+        if (names.indexOf(name) === -1) {
+        names.push(name);
+      }
+      return names;
+      }, []);
+    };
 
   Article.numWordsByAuthor = function() {
-    // TODO: Transform each author string into an object with 2 properties: One for
+    // DONE: Transform each author string into an object with 2 properties: One for
     // the author's name, and one for the total number of words across all articles written by the specified author.
     return Article.allAuthors().map(function(author) {
       return {
+        name: author,
+        words: Article.all.map(function(article) {
+          if (article.author === author) {
+          return article.body.match(/\b\w+/g).length;// Get the total number of words in this article
+        } else {return 0}
+      })
+      .reduce(function(previous, current) {
+        return previous+current;
         // someKey: someValOrFunctionCall().map(...).reduce(...), ...
-      }
-    })
-  };
+      })
+    }
+  })
+};
+
 module.Article = Article;
 })(window);
