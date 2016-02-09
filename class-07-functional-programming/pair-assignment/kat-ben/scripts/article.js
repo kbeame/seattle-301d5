@@ -39,9 +39,9 @@
 
   // This function will retrieve the data from either a local or remote source,
   // and process it, then hand off control to the View.
-  // TODO: Refactor this function, so it accepts an argument of a callback function (likely a view function)
+  // DONE: Refactor this function, so it accepts an argument of a callback function (likely a view function)
   // to execute once the loading of articles is done.
-  Article.fetchAll = function() {
+  Article.fetchAll = function(articleView) {
     if (localStorage.rawData) {
       Article.loadAll(JSON.parse(localStorage.rawData));
       articleView.initIndexPage();
