@@ -17,7 +17,7 @@
 
     this.daysAgo = parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000);
     this.publishStatus = this.publishedOn ? 'published ' + this.daysAgo + ' days ago' : '(draft)';
-    this.body = marked(this.body);
+    // this.body = marked(this.body);
 
     return template(this);
   };
@@ -60,7 +60,7 @@
       return article.body.match(/\b\w+/g).length;// Get the total number of words in this article
     })
     .reduce(function(previous, current) {
-      return previous+current;// Sum up all the values in the collection
+      return previous + current;// Sum up all the values in the collection
     })
   };
 
@@ -84,7 +84,7 @@
     return Article.allAuthors().map(function(author) {
       return {
         name: author,
-        words: Article.all.map(function(article) {
+        numWords: Article.all.map(function(article) {
           if (article.author === author) {
           return article.body.match(/\b\w+/g).length;// Get the total number of words in this article
         } else {return 0}
