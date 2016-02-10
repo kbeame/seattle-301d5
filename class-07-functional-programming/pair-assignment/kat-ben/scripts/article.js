@@ -41,17 +41,15 @@
   // and process it, then hand off control to the View.
   // DONE: Refactor this function, so it accepts an argument of a callback function (likely a view function)
   // to execute once the loading of articles is done.
-  Article.fetchAll = function(articleView) {
+  Article.fetchAll = function(page_init) {
     if (localStorage.rawData) {
       Article.loadAll(JSON.parse(localStorage.rawData));
-      articleView.initIndexPage();
-      articleView.initAdminPage();
+      page_init();
     } else {
       $.getJSON('/data/hackerIpsum.json', function(rawData) {
         Article.loadAll(rawData);
         localStorage.rawData = JSON.stringify(rawData); // Cache the json, so we don't need to request it next time.
-        articleView.initIndexPage();
-        articleView.initAdminPage();
+        page_init();
       });
     }
   };
